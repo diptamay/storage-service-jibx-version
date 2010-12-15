@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<binding forwards="false" name="storage_v1_1">
+
+    <format type="java.util.Date"
+            serializer="com.sun.jersey.samples.storageservice.rs.jibx.JiBXFactory.serializeDate"
+            deserializer="com.sun.jersey.samples.storageservice.rs.jibx.JiBXFactory.deserializeDate"/>
+
+    <mapping class="com.sun.jersey.samples.storageservice.types.Containers" name="containers" ordered="false">
+        <collection field="container" usage="optional" factory="com.sun.jersey.samples.storageservice.rs.jibx.JiBXFactory.listFactory"/>
+    </mapping>
+    <mapping class="com.sun.jersey.samples.storageservice.types.Container" name="container" ordered="false">
+        <value name="name" field="name" style="attribute" usage="optional"/>
+        <value name="uri" field="uri" usage="optional"/>
+        <collection name="items" field="item" usage="optional" factory="com.sun.jersey.samples.storageservice.rs.jibx.JiBXFactory.listFactory"/>
+    </mapping>
+    <mapping class="com.sun.jersey.samples.storageservice.types.Item" name="item" ordered="false">
+        <value name="name" field="name" style="attribute" usage="optional"/>
+        <value name="uri" field="uri" usage="optional"/>
+        <value name="mimeType" field="mimeType" usage="optional"/>
+        <value name="digest" field="digest" usage="optional"/>
+        <value name="lastModified" field="lastModified" usage="optional"/>
+    </mapping>
+
+</binding>
